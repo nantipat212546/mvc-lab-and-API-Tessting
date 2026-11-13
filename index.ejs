@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Search</title>
+</head>
+<body>
+    <h1>Product List</h1>
+
+    <form action="/products" method="GET">
+        <input
+            type="text"
+            name="keyword"
+            placeholder="Search products"
+            value="<%= keyword %>"
+        >
+        <button type="submit">Search</button>
+    </form>
+
+    <hr>
+
+    <% if (products.length === 0) { %>
+        <p>No products found.</p>
+    <% } %>
+
+    <% products.forEach(product => { %>
+        <div>
+            <h3><%= product.name %></h3>
+            <p>
+                Price: <%= product.price %> Baht
+            </p>
+        </div>
+        <hr>
+    <% }) %>
+
+</body>
+</html>
